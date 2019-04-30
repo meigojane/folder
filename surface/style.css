@@ -7,12 +7,13 @@ body {
   min-height: 100vh;
   -webkit-perspective: 100vw;
           perspective: 100vw;
-  background: radial-gradient(circle,#ccff00 , #000000, #ff0000);
+          background: #ff0000;
+  /*background: radial-gradient(circle,#ccff00 , #000000, #ff0000);
 background-size: 400% 400%;
   
-animation: AnimationName 60s ease infinite;
+animation: AnimationName 60s ease infinite;*/
 }
-
+/*
 @keyframes AnimationName { 
     0%{background-position:0% 49%}
     20%{background-position:20% 52%}
@@ -20,13 +21,23 @@ animation: AnimationName 60s ease infinite;
     60%{background-position:40% 80%}
     80%{background-position:30% 49%}
     100%{background-position:0% 49%}
-} 
+} */
 
 img{
-  width:100%;
-  height:100%;
- object-fit: contain;
+
+    object-fit: contain;
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
 }
+
+.smallimg{
+  object-fit: none;
+  width: 250px;
+  height: auto;
+  z-index: 10;
+
+}
+#jc{z-index:9;}
 
 .page {
   transition: all 0.3s;
@@ -45,7 +56,7 @@ img{
 }
 .page nav {
   grid-area: nav;
-  background: yellow;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -81,7 +92,7 @@ img{
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   position: absolute;
-  top: 0;
+  top: 30px;
   left: 0;
   width: 100%;
   height: 100%;
@@ -90,23 +101,24 @@ img{
   justify-content: center;
 }
 .panel--front {
-  font-family: 'jura', sans-serif;
-  font-weight: bold;
+  font-family: 'Aktiv Grotesk', sans-serif;
+ 
   color: white;
 }
-.panel--back {
+/*.panel--back {
   -webkit-transform: rotate3d(0, 1, 0, 180deg);
           transform: rotate3d(0, 1, 0, 180deg);
 
 }
-.panel:not(.__empty):hover .panel--back {
+
+.panel:hover .panel--back{
   -webkit-transform: rotate3d(0, 1, 0, 360deg);
           transform: rotate3d(0, 1, 0, 360deg);
 }
-.panel:not(.__empty):hover .panel--front {
+.panel:hover .panel--front, .fakemenu{
   -webkit-transform: rotate3d(0, 1, 0, 180deg);
           transform: rotate3d(0, 1, 0, 180deg);
-}
+}*/
 
 .panel--1 {
   grid-area: c1;
@@ -121,6 +133,7 @@ img{
 
 .panel--2 {
   grid-area: c2;
+  z-index: 9;
 }
 .__transitional .panel--2 {
   -webkit-transform: translate3d(0, 0, -3rem);
@@ -288,6 +301,53 @@ img{
 .__transitional .empty--5 {
   -webkit-transform: translate3d(0, 0, -10rem);
           transform: translate3d(0, 0, -10rem);
+}
+.fakeButtons {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  border: 1px solid #000;
+  position: relative;
+  top:-10px;
+  left: 10px;
+  background-color: #ff3b47;
+  border-color: #9d252b;
+  display: inline-block;
+  z-index: 3;
+}
+
+.fakeMinimize {
+  left: 14px;
+  background-color: #ffc100;
+  border-color: #9d802c;
+}
+
+.fakeZoom {
+  left: 16px;
+  background-color: #00d742;
+  border-color: #049931;
+}
+
+.fakeMenu {
+  width: auto;
+  box-sizing: border-box;
+  height: 30px;
+  
+  background-color: #bbb;
+  margin: 0 auto;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.fakeScreen {
+  background-color: #000000;
+  box-sizing: border-box;
+  z-index: -1;
+ 
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 5px;
+ 
 }
 
 
